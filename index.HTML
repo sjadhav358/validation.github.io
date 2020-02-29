@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>full page validation</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+ <style>
+	 .row
+	 {
+		 margin-left: 20%;
+	 }
+</style>
+  <script>
+	 function validates()
+  		{ //text validation
+			 var text = document.getElementById("text").value;
+			 var pass = document.getElementById("pass").value;
+			 var num = document.getElementById("number").value;
+				
+			 if(text=="")
+				 {
+					 var b =document.getElementById("error").innerHTML="empty value not accept";
+					 $('#error').css('color','red');
+					 return false;
+				 }
+			if(text.length<=8)
+				{
+					document.getElementById("error").innerHTML="value more than 8 latter";
+					 $('#error').css('color','red');
+					 return false;
+				}
+				
+				if(pass=="")
+					{
+						document.getElementById("passerror").innerHTML="password should not empty";
+					 $('#passerror').css('color','red');
+					 return false;
+					}
+				
+				if(pass.length<=5)
+					{
+						document.getElementById("passerror").innerHTML="password should more than 5";
+					 $('#passerror').css('color','red');
+					 return false;
+					}
+				
+				if(isNaN(num))
+					{
+						document.getElementById("numbererror").innerHTML="number accept only ";
+					 $('#numbererror').css('color','red');
+					 return false;
+					}
+				
+				var radio = document.forms.container;
+				for(i=0;i<radio.length;i++)
+					{
+						if(radio[i].checked=="true")
+							{
+								return true;
+							}
+						 else
+						 {
+							 document.getElementById("radio").innerHTML="select one radio button ";
+					 $('#radio').css('color','red');
+					 return false;
+						 }
+					}
+				
+				var a = document.forms.container;
+				for(i=0;i<a.length;i++)
+					{
+						if(a[i].checked=="true")
+							{
+								return true;
+							}
+						 else
+						 {
+							 document.getElementById("check").innerHTML="select one check ";
+					 $('#radio').css('color','red');
+					 return false;
+						 }
+					}
+				
+
+		}
+	
+	</script>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-info">
+	<span class="open-slide">
+		<a href="#"  onclick="opens();">
+			<svg  width="30" height="30">
+				<Path d = "M0,5 30,5" stroke="#fff" stroke-width="3"></Path>
+				<Path d = "M0,14 30,14" stroke="#fff" stroke-width="3"></Path>
+				<Path d = "M0,23 30,23" stroke="#fff" stroke-width="3"></Path>
+			</svg>
+		</a>
+	</span>
+	<a href="#" class="navbar-brand"></a>
+</nav>	
+<div class="container-fluid">
+	<h3 class="text-center text-success">full page validation</h3>
+	<div class="form-desing row" style="width: 50%">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		<form name="forms" onsubmit="return validates();">
+			<div class="form-group">
+				
+				<label>full name</label>
+			  <input type="text"  id="text" class="form-control" placeholder="enter full name">
+				<h6 id="error"> name should be more than 8 latter</h6>
+			</div>
+			<div class="form-group">
+				<label> password</label>
+				<input type="password" id="pass"  class="form-control" placeholder="enter password">
+					<h6 id="passerror"> password should be more than 8 latter</h6>
+			</div>
+			
+			<div class="form-group">
+				<lable>mobile number</lable>
+				<input type="text" id="number" class="form-control" placeholder="enter the number">
+				<h6 id="numbererror">  mobile number more than 10 digit</h6>
+			</div>
+		
+			<div class="form-group">
+		    <label>select gender</label><span id="radio"></span>
+			  <ul style="list-style: none;">
+				<li><input type="radio" name="container" value="female">female</li>
+				<li><input type="radio" name="container" value="male">male</li>
+				<li><input type="radio" name="container" value="female">other</li>
+				</ul>
+			</div>
+				
+					
+			
+			<div class="form-group">
+				<input type="submit" value="submit" class="btn btn-primary mr-3">
+				<input type="reset" value="cancel" class="btn btn-danger mr-3">
+			</div>
+		</form>
+		
+		
+		
+	</div>
+	 
+	
+</div>	
+	
+	
+	
+	
+	
+	
+	<script src="js/jquery-.js"></script>
+	<script src="css/bootstrap.min.css"></script>
+</body>
+</html>
